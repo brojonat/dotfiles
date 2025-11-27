@@ -19,3 +19,6 @@ alias claude-yolo="claude --dangerously-skip-permissions"
 
 export KUBECONFIG="$HOME/.kube/config"
 
+# all path adjustments here
+export PATH="$HOME/.tmuxifier/bin:$PATH"
+
