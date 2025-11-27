@@ -19,7 +19,3 @@ alias claude-yolo="claude --dangerously-skip-permissions"
 
 export KUBECONFIG="$HOME/.kube/config"
 
-source /usr/share/nvm/init-nvm.sh
-
-
-. "$HOME/.cargo/env"
