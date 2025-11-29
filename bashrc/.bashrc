@@ -15,6 +15,9 @@
 # enable vi-mode
 set -o vi
 
+eval "$(tmuxifier init -)"
+eval "$(starship init bash)"
+
 alias lzd="lazydocker"
 alias lzg="lazygit"
 alias vim="nvim"
@@ -22,11 +25,9 @@ alias claude-yolo="claude --dangerously-skip-permissions"
 
 # kubernetes stuff
 export KUBECONFIG="$HOME/.kube/config"
-# FIXME: source kubecompletion plugin
+# FIXME: source kubecompletion plugin for bash
 
 # path adjustments for executable discovery
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.tmuxifier/bin:$PATH"
+export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 
-eval "$(tmuxifier init -)"
-eval "$(starship init bash)"
