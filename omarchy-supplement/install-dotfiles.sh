@@ -27,7 +27,6 @@ if [ $? -eq 0 ]; then
   rm -rf ~/.config/nvim ~/.config/starship.toml ~/.local/share/nvim/ ~/.cache/nvim/ ~/.config/ghostty/config
 
   cd "$REPO_NAME"
-  stow zshrc
   stow ghostty
   stow tmux
   stow tmuxifier
