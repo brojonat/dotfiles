@@ -3,7 +3,7 @@
 
 # All the default Omarchy aliases and functions
 # (don't mess with these directly, just overwrite them here!)
-source ~/.local/share/omarchy/default/bash/rc
+. "$HOME/.local/share/omarchy/default/bash/rc"
 
 # Add your own exports, aliases, and functions here.
 #
@@ -12,14 +12,21 @@ source ~/.local/share/omarchy/default/bash/rc
 
 . "$HOME/.local/share/../bin/env"
 
+# enable vi-mode
+set -o vi
+
 alias lzd="lazydocker"
 alias lzg="lazygit"
 alias vim="nvim"
 alias claude-yolo="claude --dangerously-skip-permissions"
 
+# kubernetes stuff
 export KUBECONFIG="$HOME/.kube/config"
+# FIXME: source kubecompletion plugin
 
-# all path adjustments here
+# path adjustments for executable discovery
+export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 eval "$(tmuxifier init -)"
+eval "$(starship init bash)"
