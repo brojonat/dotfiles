@@ -1,14 +1,17 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/brojonat/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="jonbrown"
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+eval "$(tmuxifier init -)"
+export EDITOR="nvim"
+export SUDO_EDITOR="$EDITOR"
+
+# Disable themes since we're using starship
+# ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -71,6 +74,8 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(git python vi-mode zsh-autosuggestions zsh-syntax-highlighting kubectl )
 
 source $ZSH/oh-my-zsh.sh
+source <(kubectl completion zsh)
+source "$HOME/.local/bin/env"
 
 # User configuration
 
@@ -89,20 +94,22 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Key binds
+bindkey '^I' complete-word # tab
+bindkey '^[[Z' autosuggest-accept # shift + tab
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
-
-#####################################################################
-# Brown specifics
-#####################################################################
+alias vim="nvim"
+alias rm="rm -i"
+alias vv="vrun .venv"
+alias claude-yolo="claude --dangerously-skip-permissions"
+alias lzd='lazydocker'
+alias lzg='lazygit'
+alias neobean='NVIM_APPNAME=linkarzu/dotfiles-latest/neovim/neobean nvim'
+alias lazyvim='NVIM_APPNAME=linkarzu/dotfiles-latest/neovim/lazyvim nvim'
 
 # Terminal color settings for better Neovim compatibility on macOS
 export TERM=xterm-256color
@@ -112,30 +119,7 @@ export COLORTERM=truecolor
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-# aliases
-# alias ge="subl" #
-alias sub="subl"
-alias sublime="subl"
-alias ge="code"
-alias vim="nvim"
-alias rm="rm -i"
-alias tshark="/Applications/Wireshark.app/Contents/MacOS/tshark"
-alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
-alias vv="vrun .venv"
-
-alias pg_start="brew services start postgres"
-alias pg_stop="brew services stop postgres"
-alias pg_restart="brew services restart postgres"
-
-bindkey '^I' complete-word # tab
-bindkey '^[[Z' autosuggest-accept # shift + tab
-
-
-# mysql stuff
-export PATH=$PATH:/usr/local/mysql/bin
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
-
-# this will fuck with NVM and will always give you node 14, so do it before any nvm stuff
+# this will mess with NVM and will always give you node 14, so do it before any nvm stuff
 export PATH="$(yarn global bin):$PATH"
 
 # You can set $NVM_DIR to any location, but leaving it unchanged from
@@ -148,55 +132,10 @@ export NVM_DIR="$HOME/.nvm"
 # go stuff
 export GOPATH="$HOME/go"
 export GO111MODULE="on"
-export PATH=$PATH:$GOROOT/bin:${GOPATH//://bin:}/bin
 
-export PATH="$HOME/.poetry/bin:$PATH"
-
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
-alias claude-yolo="claude --dangerously-skip-permissions"
-
-source <(kubectl completion zsh)
-
-# dart package executables
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-
-export PATH=/usr/local/Cellar/postgresql@16/16.3/bin/:$PATH
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-. "$HOME/.local/bin/env"
-export PATH="$PATH:/Users/brojonat/.nsccli/bin"
-
-export PATH="$PATH:/Users/brojonat/.cargo/bin"
-
-
+# path updates for executable discovery
+export PATH=$PATH:/usr/local/go/bin
+export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
-export PATH="/Users/brojonat/flutter-development/flutter/bin:$PATH"
-export PATH="/Users/brojonat/.local/bin/duckdb:$PATH"
-
-alias lzd='lazydocker'
-alias lzg='lazygit'
-
-alias neobean='NVIM_APPNAME=linkarzu/dotfiles-latest/neovim/neobean nvim'
-alias lazyvim='NVIM_APPNAME=linkarzu/dotfiles-latest/neovim/lazyvim nvim'
-
-export PATH="/Users/brojonat/.tmux/plugins/tmuxifier/bin:$PATH"
-eval "$(tmuxifier init -)"
-
-eval "$(starship init zsh)"
+export PATH="$HOME/.local/bin/duckdb:$PATH"
 
