@@ -6,3 +6,14 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+-- Auto-reload buffers when files change externally (for use with AI coding agents in other tmux panes)
+-- This triggers a checktime when focus is gained or the cursor is held
+vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave", "CursorHold" }, {
+  group = vim.api.nvim_create_augroup("auto_reload_buffers", { clear = true }),
+  callback = function()
+    if vim.o.buftype ~= "nofile" then
+      vim.cmd("checktime") -- Check if any buffers have been changed outside of Neovim
+    end
+  end,
+})
