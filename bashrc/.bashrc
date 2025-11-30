@@ -5,6 +5,10 @@
 # (don't mess with these directly, just overwrite them here!)
 . "$HOME/.local/share/omarchy/default/bash/rc"
 
+# path adjustments for executable discovery
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
+
 # Add your own exports, aliases, and functions here.
 #
 # Make an alias for invoking commands you use constantly
@@ -26,8 +30,3 @@ alias claude-yolo="claude --dangerously-skip-permissions"
 # kubernetes stuff
 export KUBECONFIG="$HOME/.kube/config"
 # FIXME: source kubecompletion plugin for bash
-
-# path adjustments for executable discovery
-export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
-
