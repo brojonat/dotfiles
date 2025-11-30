@@ -29,4 +29,4 @@ alias claude-yolo="claude --dangerously-skip-permissions"
 
 # kubernetes stuff
 export KUBECONFIG="$HOME/.kube/config"
-# FIXME: source kubecompletion plugin for bash
+source <(kubectl completion bash)
