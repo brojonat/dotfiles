@@ -102,6 +102,7 @@ bindkey '^[[Z' autosuggest-accept # shift + tab
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
 alias vim="nvim"
 alias rm="rm -i"
 alias vv="vrun .venv"
