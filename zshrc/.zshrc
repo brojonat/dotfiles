@@ -4,9 +4,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
-eval "$(tmuxifier init -)"
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
 
@@ -141,3 +138,6 @@ export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 export PATH="$HOME/.local/bin/duckdb:$PATH"
 
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+eval "$(tmuxifier init -)"
