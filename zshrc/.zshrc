@@ -137,6 +137,7 @@ export PATH=$PATH:$HOME/go/bin
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 export PATH="$HOME/.local/bin/duckdb:$PATH"
+source "$HOME/.cargo/env"
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
