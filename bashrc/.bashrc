@@ -21,7 +21,14 @@ set -o vi
 
 eval "$(tmuxifier init -)"
 eval "$(starship init bash)"
+# fzf integration (Ctrl+R for fuzzy history search, Ctrl+T for file search, Alt+C for cd)
+eval "$(fzf --bash)"
 
+# zsh/ohmyzsh-style history search: up/down arrows search history by prefix
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+alias t="tmux"
 alias lzd="lazydocker"
 alias lzg="lazygit"
 alias vim="nvim"
