@@ -100,6 +100,7 @@ bindkey '^[[Z' autosuggest-accept # shift + tab
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
+alias t="tmux"
 alias vim="nvim"
 alias rm="rm -i"
 alias vv="vrun .venv"
