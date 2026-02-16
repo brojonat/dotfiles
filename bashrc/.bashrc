@@ -35,5 +35,5 @@ alias vim="nvim"
 alias claude-yolo="claude --dangerously-skip-permissions"
 
 # kubernetes stuff
-export KUBECONFIG="$HOME/.kube/config"
+export KUBECONFIG="$HOME/projects/k8s/firekeeper/kubeconfig"
 source <(kubectl completion bash)

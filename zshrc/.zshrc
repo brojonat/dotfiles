@@ -138,6 +138,7 @@ export PATH=$PATH:$HOME/go/bin
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 export PATH="$HOME/.local/bin/duckdb:$PATH"
+export KUBECONFIG="$HOME/projects/k8s/firekeeper/kubeconfig"
 source "$HOME/.cargo/env"
 
 eval "$(starship init zsh)"
