@@ -4,6 +4,7 @@ return {
     opts = {
       picker = {
         sources = { explorer = { hidden = true, ignored = true } },
+        files = { explorer = { hidden = true, ignored = true } },
         win = {
           input = {
             keys = {

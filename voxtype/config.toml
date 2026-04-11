@@ -1,0 +1,40 @@
+state_file = "auto"
+
+[hotkey]
+enabled = false
+
+[audio]
+device = "default"
+sample_rate = 16000
+max_duration_secs = 600
+
+[audio.feedback]
+enabled = true
+# Sound theme: "default", "subtle", "mechanical", or path to custom theme directory
+theme = "default"
+volume = 0.7
+
+[whisper]
+model = "base.en"
+language = "en"
+translate = false
+on_demand_loading = true # saves your GPU until it's needed
+
+[output]
+mode = "type"
+fallback_to_clipboard = true
+
+# Delay between typed characters in milliseconds
+# 0 = fastest possible, increase if characters are dropped
+type_delay_ms = 1
+
+[output.notification]
+on_recording_start = false
+on_recording_stop = false
+on_transcription = true
+
+[text]
+replacements = { "hyperwhisper" = "hyprwhspr" }
+
+[status]
+icon_theme = "omarchy"
