@@ -132,6 +132,9 @@ export NVM_DIR="$HOME/.nvm"
 export GOPATH="$HOME/go"
 export GO111MODULE="on"
 
+# kube stuff
+export KUBECONFIG="$HOME/projects/k8s/firekeeper/kubeconfig"
+
 # path updates for executable discovery
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
@@ -144,3 +147,4 @@ source "$HOME/.cargo/env"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(tmuxifier init -)"
+export PATH="/usr/local/opt/postgresql@18/bin:$PATH"
