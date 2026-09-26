@@ -104,6 +104,7 @@ alias t="tmux"
 alias vim="nvim"
 alias rm="rm -i"
 alias vv="vrun .venv"
+alias ls="eza --all --oneline --long --icons=always"
 alias claude-yolo="claude --dangerously-skip-permissions"
 alias lzd='lazydocker'
 alias lzg='lazygit'
@@ -119,7 +120,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # this will mess with NVM and will always give you node 14, so do it before any nvm stuff
-export PATH="$(yarn global bin):$PATH"
+# export PATH="$(yarn global bin):$PATH"  # disabled: /usr/local/bin already on PATH; yarn warns if ~/package.json exists
 
 # You can set $NVM_DIR to any location, but leaving it unchanged from
 # /usr/local/opt/nvm will destroy any nvm-installed Node installations
@@ -154,3 +155,10 @@ if [ -f '/Users/brojonat/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/brojon
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/brojonat/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/brojonat/google-cloud-sdk/completion.zsh.inc'; fi
+
+# bun completions
+[ -s "/Users/brojonat/.bun/_bun" ] && source "/Users/brojonat/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
