@@ -53,3 +53,22 @@ local function yank_with_context()
 end
 
 keymap({ "n", "x" }, "<leader>yc", yank_with_context, { desc = "Yank with context" })
+
+-- Inside Rex (and not tmux), ctrl+hjkl moves between nvim splits and hands
+-- off to `rex focus` at the edge, like vim-tmux-navigator does for tmux.
+-- See ~/.config/rex/init.lua for the other half.
+if vim.env.REX_SESSION ~= nil and vim.env.TMUX == nil then
+  local function rex_navigate(wincmd, direction)
+    return function()
+      local win = vim.api.nvim_get_current_win()
+      vim.cmd.wincmd(wincmd)
+      if vim.api.nvim_get_current_win() == win then
+        vim.system({ "rex", "focus", direction })
+      end
+    end
+  end
+  keymap("n", "<C-h>", rex_navigate("h", "left"), { desc = "Go to left window" })
+  keymap("n", "<C-j>", rex_navigate("j", "down"), { desc = "Go to down window" })
+  keymap("n", "<C-k>", rex_navigate("k", "up"), { desc = "Go to up window" })
+  keymap("n", "<C-l>", rex_navigate("l", "right"), { desc = "Go to right window" })
+end
